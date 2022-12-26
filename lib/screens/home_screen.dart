@@ -9,11 +9,23 @@ class HomeScreen extends StatelessWidget {
     LocalNotification.requestPermission();
     return Scaffold(
       body: Center(
-        child: ElevatedButton(
-            onPressed: () {
-              LocalNotification.sampleNotification();
-            },
-            child: const Text("Local Notification")),
+        child:Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+                onPressed: () {
+                  LocalNotification.sampleNotification();
+                },
+                child: const Text("Local Notification")),
+            ElevatedButton(
+                onPressed: () {
+                  LocalNotification.sampleNotification();
+                  LocalNotification.repeatNotification();
+
+                }, child: const Text("Repeat Notification"))
+          ],
+
+        )
       ),
     );
   }
